@@ -53,37 +53,75 @@ const initApp = () => {
       const title = document.querySelector('#title');
       title.textContent = `${board.title}`;
 
-      let boardTag = `
-      <main data-tab="${index}" id="task-board" class="bg-[#f4f7fd] dark:bg-[#20212c] hidden items-start gap-6 p-6 overflow-x-scroll task-board">
-        <section class="w-[17.5rem] shrink-0" id="section-one">
-          <div id="div-one" class="flex items-center">
-            <div class="bg-[#49c4e5] w-4 h-4 rounded-full mr-2"></div>
-            <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">TODO (<span>0</span>)</h3>
-          </div>
-          <ul id="todo-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
-          </ul>
-        </section>
-        <section id="section-two" class="w-[17.5rem] shrink-0">
-          <div id="div-two" class="flex items-center">
-            <div class="bg-[#8471f2] w-4 h-4 rounded-full mr-2"></div>
-            <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DOING (<span>0</span>)</h3>
-          </div>
-          <ul id="doing-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
-          </ul>
-        </section>
-        <section id="section-three" class="w-[17.5rem] shrink-0">
-          <div id="div-three" class="flex items-center">
-            <div class="bg-[#67e2ae] w-4 h-4 rounded-full mr-2"></div>
-            <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DONE (<span>0</span>)</h3>
-          </div>
-          <ul id="done-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
-          </ul>
-        </section>
-        <!-- <div class="shrink-0 new-column">
-          <button id="new-column-btn" class="text-[#828fa3] text-2xl hover:text-[#635fcf] bg-[#ffffff] dark:bg-[#161822] rounded-sm">+New Column</button>
-        </div> -->
-      </main>`;
-      body.insertAdjacentHTML('beforeend', boardTag);
+      if(colorScheme === false) {
+        let boardTag = `
+          <main data-tab="${index}" id="task-board" class="bg-[#f4f7fd] hidden items-start gap-6 p-6 overflow-x-scroll task-board" style="margin-left: 300px;">
+            <section class="w-[17.5rem] shrink-0" id="section-one">
+              <div id="div-one" class="flex items-center">
+                <div class="bg-[#49c4e5] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">TODO (<span>0</span>)</h3>
+              </div>
+              <ul id="todo-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <section id="section-two" class="w-[17.5rem] shrink-0">
+              <div id="div-two" class="flex items-center">
+                <div class="bg-[#8471f2] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DOING (<span>0</span>)</h3>
+              </div>
+              <ul id="doing-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <section id="section-three" class="w-[17.5rem] shrink-0">
+              <div id="div-three" class="flex items-center">
+                <div class="bg-[#67e2ae] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DONE (<span>0</span>)</h3>
+              </div>
+              <ul id="done-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <!-- <div class="shrink-0 new-column">
+              <button id="new-column-btn" class="text-[#828fa3] text-2xl hover:text-[#635fcf] bg-[#ffffff] dark:bg-[#161822] rounded-sm">+New Column</button>
+            </div> -->
+          </main>`
+        ;
+        body.insertAdjacentHTML('beforeend', boardTag);
+      }
+
+      if(colorScheme === true) {
+        let boardTag = `
+          <main data-tab="${index}" id="task-board" class="bg-[#20212c] hidden items-start gap-6 p-6 overflow-x-scroll task-board">
+            <section class="w-[17.5rem] shrink-0" id="section-one">
+              <div id="div-one" class="flex items-center">
+                <div class="bg-[#49c4e5] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">TODO (<span>0</span>)</h3>
+              </div>
+              <ul id="todo-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <section id="section-two" class="w-[17.5rem] shrink-0">
+              <div id="div-two" class="flex items-center">
+                <div class="bg-[#8471f2] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DOING (<span>0</span>)</h3>
+              </div>
+              <ul id="doing-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <section id="section-three" class="w-[17.5rem] shrink-0">
+              <div id="div-three" class="flex items-center">
+                <div class="bg-[#67e2ae] w-4 h-4 rounded-full mr-2"></div>
+                <h3 class="text-[#828fa3] text-xs tracking-[0.3em]">DONE (<span>0</span>)</h3>
+              </div>
+              <ul id="done-list" class="flex flex-col mt-4 gap-y-4 cursor-pointer">
+              </ul>
+            </section>
+            <!-- <div class="shrink-0 new-column">
+              <button id="new-column-btn" class="text-[#828fa3] text-2xl hover:text-[#635fcf] bg-[#ffffff] dark:bg-[#161822] rounded-sm">+New Column</button>
+            </div> -->
+          </main>`
+        ;
+        body.insertAdjacentHTML('beforeend', boardTag);
+      }
     });
   };
   showBoards();
@@ -111,55 +149,6 @@ const initApp = () => {
   });
 
 
-  // CREATE NEW TASKS MENU //
-
-  const addBtn = document.querySelector('#add-btn');
-  const addtask = document.querySelector('#add-task');
-  const addTask = document.querySelector('#add-task-container');
-  const boardTitles = document.querySelectorAll('#board-title');
-  addTaskForm = document.forms['add-task-form'];
-  taskTitleTag = addTaskForm.querySelector('#task-title-input');
-  descTag = addTaskForm.querySelector('textarea');
-  subTaskTag = addTaskForm.querySelectorAll('#sub-task');
-  createTaskBtn = addTaskForm.querySelector('#create-task-btn');
-
-
-  addBtn.addEventListener('click', function() {
-    taskTitleTag.focus();
-    addTask.style.display = 'block';
-  });
-
-  window.addEventListener('click', function(e) {
-    if(e.target === addTask) {
-      isUpdate = false;
-      addTask.style.display = 'none';
-      addtask.querySelector('h2').textContent = 'Add New Task';
-      createTaskBtn.textContent = 'Create Task';
-      statusMenu.style.display - 'none';
-      statusTag.textContent = 'Select Status';
-    };
-  });
-
-
-  // STATUS MENU(TODO, DOING, DONE) //
-
-  statusBtnOne = document.querySelector('#status-btn-one');
-  statusTag = statusBtnOne.querySelector('p');
-  statusMenu = document.querySelector('#status-menu');
-
-  statusMenu.querySelector('ul').addEventListener('click', e => {
-    if(e.target.matches('li')) {
-      statusTag.textContent = e.target.textContent;
-      statusMenu.style.display = 'none';
-    }
-  });
-
-  const selectStatus = () => {
-    statusMenu.style.display = 'block';
-  };
-  statusBtnOne.addEventListener('click', selectStatus);
-
-
   let randNumber = Math.floor(Math.random() * 10000);
 
 
@@ -167,6 +156,8 @@ const initApp = () => {
 
   createBoardBtn.addEventListener('click', e => {
     e.preventDefault()
+
+    titleTag.focus();
 
     let boardTitle = titleTag.value;
     let boardInfo = {
@@ -189,12 +180,38 @@ const initApp = () => {
     titleTag.value = "";
     showBoards();
     selectBoard();
-    window.location.reload();
+
+    // UPDATES BOARD LENGTH //
+
+    const boardsLength = document.querySelector('#boards span');
+    boardsLength.textContent = `${boards.length}`;
+
+    // CLICKS ON THE LAST BOARD TITLE WHEN A NEW BOARD IS CREATED //
+    
+    boardList.lastElementChild.click();
+
+    let query = window.matchMedia("(max-width: 720px)");
+    let queryOne = window.matchMedia("(max-width: 1080px)");
+    if(query.matches) {
+      window.location.reload();
+      taskBoard.forEach((taskboard) => {
+        taskboard.style.marginLeft = 'auto';
+      });
+    }
+    if(queryOne.matches) {
+      window.location.reload();
+    }
   });
   if(sideOpenBtn.click()) {
     taskBoard.forEach((taskboard) => {
       taskboard.style.marginLeft = '300px';
     });
+  };
+  const boardsLength = document.querySelector('#boards span');
+  boardsLength.textContent = `${boards.length}`;
+
+  window.onload = () => { 
+    boardList.firstElementChild.click();
   };
 
 
@@ -202,6 +219,8 @@ const initApp = () => {
 
   const dotBoardBtn = document.querySelector('#dot-board-btn');
   const dotBoardMenu = document.querySelector('#dot-board-menu');
+  const deleteBoardBtn = document.querySelector('#deleteboard');
+  const deleteAlert = document.querySelector('#delete-alert-container');
 
   dotBoardBtn.addEventListener('click', () => {
     dotBoardMenu.style.display = 'block';
@@ -212,9 +231,6 @@ const initApp = () => {
       dotBoardMenu.style.display = 'none';
     }
   });
-
-  const deleteBoardBtn = document.querySelector('#deleteboard');
-  const deleteAlert = document.querySelector('#delete-alert-container');
 
   deleteBoardBtn.addEventListener('click', () => {
     deleteAlert.style.display = 'block';
@@ -231,9 +247,6 @@ const initApp = () => {
       document.querySelector('#delete-task-alert-container').style.display = 'none';
     };
   });
-
-
-  const deleteboard = document.querySelector('#delete-board');
 
   document.querySelector('#cancel-alert').addEventListener('click', () => {
     deleteAlert.style.display = 'none'
@@ -279,12 +292,13 @@ const initApp = () => {
           titleTag.value = titleHead.innerText;
         });
 
+        const deleteboard = document.querySelector('#delete-board');
+
         deleteboard.addEventListener('click', () => {
           boards.splice(currentBoard, 1);
           if(boardList.lastElementChild.click()) return;
           localStorage.setItem("boards", JSON.stringify(boards));
           showBoards();
-          console.log(boards);
           window.location.reload();
           deleteAlert.style.display = 'none';
         });
@@ -301,15 +315,8 @@ const initApp = () => {
   };
   selectBoard();
 
-  // CLICKS ON THE LAST BOARD TITLE WHEN A NEW BOARD IS CREATED //
-  boardList.firstElementChild.click();
 
-
-  // UPDATES BOARD LENGTH //
-
-  const boardsLength = document.querySelector('#boards span');
-  boardsLength.textContent = `${boards.length}`;
-
+  // TODO TASK FUNCTION FOR EACH BOARD //
 
   function showTodoTask() {
     const todoList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list');
@@ -440,6 +447,29 @@ const initApp = () => {
         todoList.insertAdjacentHTML("beforeend", details);
       }
 
+      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#subtask-list');
+
+      column.subtasks.forEach((task) => {
+        if(colorScheme === false) {
+          let subtasks = `
+            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
+              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;">
+              <p id="input">${task.title}</p>
+            </label>
+          `;
+          subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
+        }
+        if(colorScheme === true) {
+          let subtasks = `
+            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
+              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;">
+              <p id="input">${task.title}</p>
+            </label>
+          `;
+          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
+        }
+      });
+
       // UPDATES SUBTASKS LENGTH //
 
       const subtasksLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelectorAll('#todo-list #subtasks');
@@ -453,7 +483,6 @@ const initApp = () => {
       const taskTitles = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelectorAll('#todo-task h4');
       const taskDetailsBox = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#task-details-container');
       const dotMenu = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#dot-menu');
-      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#subtask-list');
       const subtaskLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#subtask');
       const taskDetails = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#todo-list').querySelectorAll('#task-details');
 
@@ -466,67 +495,49 @@ const initApp = () => {
 
         title.addEventListener('click', () => {
           taskDetailsBox[index].style.display = 'block';
+        });
 
-          subtaskLength.forEach((subtask, index) => {
-            subtask.textContent = `${board.todoColumn[index].subtasks.length}`;
-          });
+        subtaskLength.forEach((subtask, index) => {
+          subtask.textContent = `${board.todoColumn[index].subtasks.length}`;
+        });
 
-          // CHECKBOX STATUS OF SUBTASKS //
+        // CHECKBOX STATUS OF SUBTASKS //
 
-          let checkBox = taskDetails[index].querySelectorAll('input');
-          let completed = taskDetails[index].querySelector('#completed');
-          let count = 0;
-          checkBox.forEach((checkbox, index) => {
-            checkbox.addEventListener('click', () => {
-              if(checkbox.checked === true) {
-                completed.textContent = ++count;
-                checkbox.style.backgroundColor = '#635fcf';
-                checkbox.nextElementSibling.style.color = '#828fa3';
-                checkbox.nextElementSibling.style.textDecoration = 'line-through';
-
-              } else {
-                completed.textContent = --count;
-                checkbox.nextElementSibling.style.color = '#ffffff';
-                checkbox.nextElementSibling.style.textDecoration = 'initial';
-              }
-              number.subtasks[index].isCompleted = checkbox.checked;
-              localStorage.setItem("boards", JSON.stringify(boards));
-              document.location.reload();
-            });
-            checkbox.checked = number.subtasks[index].isCompleted;
-            if(number.subtasks[index].isCompleted === true) {
+        let checkBox = taskDetails[index].querySelector('#subtask-list').querySelectorAll('input');
+        let completed = taskDetails[index].querySelector('#completed');
+        let count = 0;
+        checkBox.forEach((checkbox, index) => {
+          checkbox.addEventListener('change', () => {
+            if(checkbox.checked === true) {
               completed.textContent = ++count;
+              done.textContent = ++increase;
               checkbox.style.backgroundColor = '#635fcf';
               checkbox.nextElementSibling.style.color = '#828fa3';
               checkbox.nextElementSibling.style.textDecoration = 'line-through';
-            }
-          })
-        });
 
-        number.subtasks.forEach((subtask, index) => {
+            } else {
+              completed.textContent = --count;
+              done.textContent = --increase;
+              if(colorScheme === false) {
+                checkbox.style.backgroundColor = '#ffffff';
+              } else {
+                checkbox.style.backgroundColor = '#2b2c37';
+              }
+              checkbox.nextElementSibling.style.color = '#ffffff';
+              checkbox.nextElementSibling.style.textDecoration = 'initial';
+            }
+            number.subtasks[index].isCompleted = checkbox.checked;
+            localStorage.setItem("boards", JSON.stringify(boards));
+          });
+          checkbox.checked = number.subtasks[index].isCompleted;
           if(number.subtasks[index].isCompleted === true) {
+            completed.textContent = ++count;
             done.textContent = ++increase;
+            checkbox.style.backgroundColor = '#635fcf';
+            checkbox.nextElementSibling.style.color = '#828fa3';
+            checkbox.nextElementSibling.style.textDecoration = 'line-through';
           }
         })
-      });
-
-      column.subtasks.forEach((task) => {
-        if(colorScheme === false) {
-          let subtasks = `
-            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
-              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;"><p id="input">${task.title}</p>
-            </label>
-          `;
-          subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
-        }
-        if(colorScheme === true) {
-          let subtasks = `
-            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
-              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;><p id="input">${task.title}</p>
-            </label>
-          `;
-          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
-        }
       });
 
       taskDetailsBox.forEach((box, index) => {
@@ -571,9 +582,12 @@ const initApp = () => {
         createTaskBtn.textContent = 'Save Changes';
         taskTitleTag.value = taskDetails[index].querySelector('h2').textContent;
         descTag.value = taskDetails[index].querySelector('p').textContent;
+        addtask.querySelector('.sub-task').style.display = 'none';
 
         const subtask = taskDetails[index].querySelectorAll('#input');
-        subtask.forEach((tag, index) => {
+        board.todoColumn[index].subtasks.forEach((tag, index) => {
+
+          const subTaskDiv = document.querySelector('#subtask-div');
 
           // create elements //
           const div = document.createElement('div');
@@ -581,7 +595,7 @@ const initApp = () => {
           const deleteBtn = document.createElement('i');
 
           // add classes //
-          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4',  'subtask');
+          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4', 'sub');
           input.setAttribute('id', 'sub-task');
           input.setAttribute('type', 'text');
           input.setAttribute('minlength', '5');
@@ -606,8 +620,7 @@ const initApp = () => {
           div.appendChild(deleteBtn);
           subTaskDiv.append(div);
           
-          let subTag = document.querySelectorAll('#sub-task');
-          subTag[index].value = subtask[index].textContent;
+          input.value = subtask[index].textContent;
         });
         statusMenu.querySelector('.doing').style.display = 'none';
         statusMenu.querySelector('.done').style.display = 'none';
@@ -624,7 +637,6 @@ const initApp = () => {
           localStorage.setItem("boards", JSON.stringify(boards));
           document.querySelector('#delete-task-alert-container').style.display = 'none';
           showTodoTask();
-          // console.log(boards);
         })
       });
     });
@@ -665,6 +677,8 @@ const initApp = () => {
     })
   };
 
+
+  // DOING TASK FUNCTION FOR EACH BOARD //
 
   function showDoingTask() {
     const doingList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list');
@@ -795,6 +809,29 @@ const initApp = () => {
         doingList.insertAdjacentHTML("beforeend", details);
       }
 
+      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#subtask-list');
+
+      column.subtasks.forEach((task) => {
+        if(colorScheme === false) {
+          let subtasks = `
+            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
+              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;">
+              <p id="input">${task.title}</p>
+            </label>
+          `;
+          subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
+        }
+        if(colorScheme === true) {
+          let subtasks = `
+            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
+              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;">
+              <p id="input">${task.title}</p>
+            </label>
+          `;
+          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
+        }
+      });
+
       // UPDATES SUBTASKS LENGTH //
 
       const subtasksLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelectorAll('#doing-task #subtasks');
@@ -809,7 +846,7 @@ const initApp = () => {
       const taskDetailsBox = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#task-details-container');
       const taskDetails = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#task-details');
       const dotMenu = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#dot-menu');
-      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#subtask-list');
+      const subtaskLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#subtask');
 
       taskTitles.forEach((title, index) => {
 
@@ -820,65 +857,49 @@ const initApp = () => {
 
         title.addEventListener('click', () => {
           taskDetailsBox[index].style.display = 'block';
+        });
 
-          const subtaskLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#doing-list').querySelectorAll('#subtask');
-          subtaskLength.forEach((subtask, index) => {
-            subtask.textContent = `${board.doingColumn[index].subtasks.length}`;
-          });
+        subtaskLength.forEach((subtask, index) => {
+          subtask.textContent = `${board.doingColumn[index].subtasks.length}`;
+        });
 
-          let checkBox = taskDetails[index].querySelectorAll('input');
-          let completed = taskDetails[index].querySelector('#completed');
-          let count = 0;
-          checkBox.forEach((checkbox, index) => {
-            checkbox.addEventListener('change', () => {
-              if(checkbox.checked === true) {
-                completed.textContent = ++count;
-                checkbox.style.backgroundColor = '#635fcf';
-                checkbox.nextElementSibling.style.color = '#828fa3';
-                checkbox.nextElementSibling.style.textDecoration = 'line-through';
-              } else {
-                completed.textContent = --count;
-                checkbox.nextElementSibling.style.color = '#ffffff';
-                checkbox.nextElementSibling.style.textDecoration = 'initial';
-              }
-              number.subtasks[index].isCompleted = checkbox.checked;
-              localStorage.setItem("boards", JSON.stringify(boards));
-              document.location.reload();
-            })
-            checkbox.checked = number.subtasks[index].isCompleted;
+        // CHECKBOX STATUS OF SUBTASKS //
+
+        let checkBox = taskDetails[index].querySelector('#subtask-list').querySelectorAll('input');
+        let completed = taskDetails[index].querySelector('#completed');
+        let count = 0;
+        checkBox.forEach((checkbox, index) => {
+          checkbox.addEventListener('change', () => {
             if(checkbox.checked === true) {
-              completed.textContent = ++count 
+              completed.textContent = ++count;
+              done.textContent = ++increase;
               checkbox.style.backgroundColor = '#635fcf';
               checkbox.nextElementSibling.style.color = '#828fa3';
               checkbox.nextElementSibling.style.textDecoration = 'line-through';
-            }
-          })
-        });
 
-        number.subtasks.forEach((subtask, index) => {
+            } else {
+              completed.textContent = --count;
+              done.textContent = --increase;
+              if(colorScheme === false) {
+                checkbox.style.backgroundColor = '#ffffff';
+              } else {
+                checkbox.style.backgroundColor = '#2b2c37';
+              }
+              checkbox.nextElementSibling.style.color = '#ffffff';
+              checkbox.nextElementSibling.style.textDecoration = 'initial';
+            }
+            number.subtasks[index].isCompleted = checkbox.checked;
+            localStorage.setItem("boards", JSON.stringify(boards));
+          });
+          checkbox.checked = number.subtasks[index].isCompleted;
           if(number.subtasks[index].isCompleted === true) {
+            completed.textContent = ++count;
             done.textContent = ++increase;
+            checkbox.style.backgroundColor = '#635fcf';
+            checkbox.nextElementSibling.style.color = '#828fa3';
+            checkbox.nextElementSibling.style.textDecoration = 'line-through';
           }
         })
-      });
-
-      column.subtasks.forEach((task) => {
-        if(colorScheme === false) {
-          let subtasks = `
-            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
-              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;"><p id="input">${task.title}</p>
-            </label>
-          `;
-          subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
-        }
-        if(colorScheme === true) {
-          let subtasks = `
-            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
-              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;><p id="input">${task.title}</p>
-            </label>
-          `;
-          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
-        }
       });
 
       taskDetailsBox.forEach((box, index) => {
@@ -923,9 +944,12 @@ const initApp = () => {
         createTaskBtn.textContent = 'Save Changes';
         taskTitleTag.value = taskDetails[index].querySelector('h2').textContent;
         descTag.value = taskDetails[index].querySelector('p').textContent;
+        addtask.querySelector('.sub-task').style.display = 'none';
 
         const subtask = taskDetails[index].querySelectorAll('#input');
-        subtask.forEach((tag, index) => {
+        board.doingColumn[index].subtasks.forEach((tag, index) => {
+
+          const subTaskDiv = document.querySelector('#subtask-div');
 
           // create elements //
           const div = document.createElement('div');
@@ -933,21 +957,13 @@ const initApp = () => {
           const deleteBtn = document.createElement('i');
 
           // add classes //
-          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4',  'subtask');
+          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4', 'sub');
           input.setAttribute('id', 'sub-task');
           input.setAttribute('type', 'text');
           input.setAttribute('minlength', '5');
           input.setAttribute('maxlength', '30');
           input.setAttribute('placeholder', 'e.g.Make Coffee');
           input.classList.add('px-4', 'py-2', 'text-xs', 'rounded-sm', 'bg-[#ffffff]', 'dark:bg-[#2b2c37]', 'border-[1.9px]', 'border-[#828fa3',   'border-opacity-20', 'text-[#000112]', 'dark:text-[#ffffff]','w-full',  'cursor-pointer', 'hover:border-[#635fcf]');
-          if(colorScheme === false) {
-            input.style.background = '#ffffff';
-            input.style.color = '#000112';
-          };
-          if(colorScheme === true) {
-            input.style.background = '#2b2c37';
-            input.style.color = '#ffffff';
-          };
           if(colorScheme === false) {
             input.style.background = '#ffffff';
             input.style.color = '#000112';
@@ -966,8 +982,7 @@ const initApp = () => {
           div.appendChild(deleteBtn);
           subTaskDiv.append(div);
           
-          let subTag = document.querySelectorAll('#sub-task');
-          subTag[index].value = subtask[index].textContent;
+          input.value = subtask[index].textContent;
         });
 
         statusMenu.querySelector('.todo').style.display = 'none';
@@ -1022,6 +1037,8 @@ const initApp = () => {
     })
   };
 
+
+  // DONE TASK FUNCTION FOR EACH BOARD //
 
   function showDoneTask() {
     const doneList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list');
@@ -1151,6 +1168,29 @@ const initApp = () => {
         doneList.insertAdjacentHTML("beforeend", details);
       };
 
+      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#subtask-list');
+
+      column.subtasks.forEach((task) => {
+        if(colorScheme === false) {
+        let subtasks = `
+          <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
+            <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;">
+            <p id="input">${task.title}</p>
+          </label>
+        `;
+        subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
+        }
+        if(colorScheme === true) {
+          let subtasks = `
+            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
+              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;">
+              <p id="input">${task.title}</p>
+            </label>
+          `;
+          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
+        }
+      });
+
       // UPDATES SUBTASKS LENGTH //
 
       const subtasksLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelectorAll('#done-task #subtasks');
@@ -1165,7 +1205,7 @@ const initApp = () => {
       const taskDetailsBox = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#task-details-container');
       const taskDetails = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#task-details');
       const dotMenu = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#dot-menu');
-      const subtaskList = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#subtask-list');
+      const subtaskLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#subtask');
 
       taskTitles.forEach((title, index) => {
 
@@ -1176,66 +1216,49 @@ const initApp = () => {
 
         title.addEventListener('click', () => {
           taskDetailsBox[index].style.display = 'block';
+        });
 
-          const subtaskLength = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#subtask');
-          subtaskLength.forEach((subtask, index) => {
-            subtask.textContent = `${board.doneColumn[index].subtasks.length}`;
-          });
+        subtaskLength.forEach((subtask, index) => {
+          subtask.textContent = `${board.doneColumn[index].subtasks.length}`;
+        });
 
-          let checkBox = taskDetails[index].querySelectorAll('input');
-          let completed = taskDetails[index].querySelector('#completed');
-          let count = 0;
-          checkBox.forEach((checkbox, index) => {
-            checkbox.addEventListener('change', () => {
-              if(checkbox.checked === true) {
-                completed.textContent = ++count;
-                checkbox.style.backgroundColor = '#635fcf';
-                checkbox.nextElementSibling.style.color = '#828fa3';
-                checkbox.nextElementSibling.style.textDecoration = 'line-through';
-              } else {
-                completed.textContent = --count;
-                checkbox.style.backgroundColor = '#635fcf';
-                checkbox.nextElementSibling.style.color = '#ffffff';
-                checkbox.nextElementSibling.style.textDecoration = 'initial';
-              }
-              number.subtasks[index].isCompleted = checkbox.checked;
-              localStorage.setItem("boards", JSON.stringify(boards));
-              document.location.reload();
-            })
-            checkbox.checked = number.subtasks[index].isCompleted;
+        // CHECKBOX STATUS OF SUBTASKS //
+
+        let checkBox = taskDetails[index].querySelector('#subtask-list').querySelectorAll('input');
+        let completed = taskDetails[index].querySelector('#completed');
+        let count = 0;
+        checkBox.forEach((checkbox, index) => {
+          checkbox.addEventListener('change', () => {
             if(checkbox.checked === true) {
               completed.textContent = ++count;
+              done.textContent = ++increase;
               checkbox.style.backgroundColor = '#635fcf';
               checkbox.nextElementSibling.style.color = '#828fa3';
               checkbox.nextElementSibling.style.textDecoration = 'line-through';
-            }
-          })
-        });
 
-        number.subtasks.forEach((subtask, index) => {
+            } else {
+              completed.textContent = --count;
+              done.textContent = --increase;
+              if(colorScheme === false) {
+                checkbox.style.backgroundColor = '#ffffff';
+              } else {
+                checkbox.style.backgroundColor = '#2b2c37';
+              }
+              checkbox.nextElementSibling.style.color = '#ffffff';
+              checkbox.nextElementSibling.style.textDecoration = 'initial';
+            }
+            number.subtasks[index].isCompleted = checkbox.checked;
+            localStorage.setItem("boards", JSON.stringify(boards));
+          });
+          checkbox.checked = number.subtasks[index].isCompleted;
           if(number.subtasks[index].isCompleted === true) {
+            completed.textContent = ++count;
             done.textContent = ++increase;
+            checkbox.style.backgroundColor = '#635fcf';
+            checkbox.nextElementSibling.style.color = '#828fa3';
+            checkbox.nextElementSibling.style.textDecoration = 'line-through';
           }
         })
-      });
-
-      column.subtasks.forEach((task) => {
-        if(colorScheme === false) {
-        let subtasks = `
-          <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#f4f7fd] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center">
-            <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #ffffff;"><p id="input">${task.title}</p>
-          </label>
-        `;
-        subtaskList[index].insertAdjacentHTML("beforeend", subtasks); 
-        }
-        if(colorScheme === true) {
-          let subtasks = `
-            <label id="sub-task" class="px-4 py-2 rounded-sm bg-[#20212c] mt-4 cursor-pointer hover:bg-[#63cfcf] hover:bg-opacity-20 flex items-center" style="background: #20212c";>
-              <input id="checkbox" type="checkbox" name="subtask" value="${task.title}" class="mr-2" style="background-color: #2b2c37;><p id="input">${task.title}</p>
-            </label>
-          `;
-          subtaskList[index].insertAdjacentHTML("beforeend", subtasks);
-        }
       });
 
       taskDetailsBox.forEach((box, index) => {
@@ -1253,8 +1276,6 @@ const initApp = () => {
     const dotMenu = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#dot-menu');
     const taskDetailsBox = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#task-details-container');
     const taskDetails = document.querySelector(`#task-board[data-tab="${currentBoard}"]`).querySelector('#done-list').querySelectorAll('#task-details');
-
-    // DELETE TASK //
 
     dotBtn.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
@@ -1280,9 +1301,12 @@ const initApp = () => {
         createTaskBtn.textContent = 'Save Changes';
         taskTitleTag.value = taskDetails[index].querySelector('h2').textContent;
         descTag.value = taskDetails[index].querySelector('p').textContent;
+        addtask.querySelector('.sub-task').style.display = 'none';
 
         const subtask = taskDetails[index].querySelectorAll('#input');
-        subtask.forEach((tag, index) => {
+        board.doneColumn[index].subtasks.forEach((tag, index) => {
+
+          const subTaskDiv = document.querySelector('#subtask-div');
 
           // create elements //
           const div = document.createElement('div');
@@ -1290,7 +1314,7 @@ const initApp = () => {
           const deleteBtn = document.createElement('i');
 
           // add classes //
-          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4',  'subtask');
+          div.classList.add('flex', 'justify-between', 'items-center', 'mt-4','sub');
           input.setAttribute('id', 'sub-task');
           input.setAttribute('type', 'text');
           input.setAttribute('minlength', '5');
@@ -1298,11 +1322,13 @@ const initApp = () => {
           input.setAttribute('placeholder', 'e.g.Make Coffee');
           input.classList.add('px-4', 'py-2', 'text-xs', 'rounded-sm', 'border-[1.9px]', 'border-[#828fa3', 'border-opacity-20','w-full',  'cursor-pointer', 'hover:border-[#635fcf]');
           if(colorScheme === false) {
+            input.style.background = '#ffffff';
             input.style.color = '#000112';
-          }
+          };
           if(colorScheme === true) {
+            input.style.background = '#2b2c37';
             input.style.color = '#ffffff';
-          }
+          };
           deleteBtn.classList.add('fa-solid', 'fa-xmark', 'ml-3', 'cursor-pointer', 'delete');
           deleteBtn.style.color = "#828fa3";
           deleteBtn.style.fontSize = "x-large";
@@ -1313,13 +1339,14 @@ const initApp = () => {
           div.appendChild(deleteBtn);
           subTaskDiv.append(div);
           
-          let subTag = document.querySelectorAll('#sub-task');
-          subTag[index].value = subtask[index].textContent;
+          input.value = subtask[index].textContent;
         });
 
         statusMenu.querySelector('.todo').style.display = 'none';
         statusMenu.querySelector('.doing').style.display = 'none';
       });
+
+      // DELETE TASK //
 
       dotMenu[index].querySelector('#deletetask').addEventListener('click', () => {
         document.querySelector('#delete-task-alert-container').style.display = 'block';
@@ -1370,132 +1397,185 @@ const initApp = () => {
   };
 
 
-  // CREATE TASK BTN
+  // CREATE NEW TASKS MENU //
 
-  createTaskBtn.addEventListener('click', e => {
-    e.preventDefault();
-
-    let board = boards[currentBoard];
-
-    subTaskTag = addTaskForm.querySelectorAll('#sub-task');
-    let taskTitle = taskTitleTag.value;
-    let taskDesc = descTag.value;
-    let task = {
-      title: taskTitle,
-      desc: taskDesc,
-      subtasks: []
-    };
-    subTaskTag.forEach((subtask) => {
-      if(subtask.value !== "") {
-        let subtasks = {
-          title: subtask.value,
-          isCompleted: false
-        }
-        task.subtasks.push(subtasks);
-      }
-    });
-
-    if(statusTag.textContent === "Todo") {
-      if(!isUpdate) {
-        board.todoColumn.push(task);
-      } else {
-        isUpdate = false;
-        board.todoColumn[updateId] = task; //updating specific task
-      }
-      showTodoTask();
-    }
-    else if(statusTag.textContent === "Doing") {
-      if(!isUpdate) {
-        board.doingColumn.push(task);
-      } else {
-        isUpdate = false;
-        board.doingColumn[updateId] = task; //updating specific task
-      }
-      showDoingTask();
-    }
-    else if(statusTag.textContent === "Done") {
-      if(!isUpdate) {
-        board.doneColumn.push(task);
-      } else {
-        isUpdate = false;
-        board.doneColumn[updateId] = task; //updating specific task
-      }
-      showDoneTask();
-    };
-
-    boards[currentBoard] = board //overwrite previous board
-
-    localStorage.setItem("boards", JSON.stringify(boards));
-
-
-    addTask.style.display = 'none';
-    taskTitleTag.value = "";
-    descTag.value = "";
-    subTaskTag.forEach((subtask) => {
-      subtask.value = ""
-    });
-    statusTag.textContent = 'Select Status';
-  });
-
-
-  // ADD SUBTASKS //
-  const subTaskBtn = document.querySelector('.subtask-btn');
+  const addBtn = document.querySelector('#add-btn');
+  const addtask = document.querySelector('#add-task');
+  const addTask = document.querySelector('#add-task-container');
+  const boardTitles = document.querySelectorAll('#board-title');
+  addTaskForm = document.forms['add-task-form'];
+  taskTitleTag = addTaskForm.querySelector('#task-title-input');
+  descTag = addTaskForm.querySelector('textarea');
+  subTaskTag = addTaskForm.querySelectorAll('#sub-task');
+  createTaskBtn = addTaskForm.querySelector('#create-task-btn');
   const subTaskDiv = document.querySelector('#subtask-div');
 
-  subTaskBtn.addEventListener('click', function(e) {
-    e.preventDefault()
 
-    // create elements //
-    const div = document.createElement('div');
-    const input = document.createElement('input');
-    const deleteBtn = document.createElement('i');
+  addBtn.addEventListener('click', function() {
+    taskTitleTag.focus();
+    addTask.style.display = 'block';
+    subTaskDiv.querySelector('.sub-task').style.display = 'flex';
+    subTaskDiv.querySelectorAll('.sub').forEach(detail => detail.remove());
+    subTaskDiv.querySelectorAll('.subtaskk').forEach(detail => detail.remove());
+    subTaskDiv.querySelectorAll('.subtaskk').forEach(detail => detail.style.display = 'none');
+    addtask.querySelector('h2').textContent = 'Add New Task';
+    createTaskBtn.textContent = 'Create Task';
+    statusMenu.style.display - 'none';
+    statusTag.textContent = 'Select Status';
 
-    // add classes //
-    div.classList.add('flex', 'justify-between', 'items-center', 'mt-4',  'sub-task');
-    input.setAttribute('id', 'sub-task');
-    input.setAttribute('type', 'text');
-    input.setAttribute('minlength', '5');
-    input.setAttribute('maxlength', '100');
-    input.setAttribute('placeholder', 'e.g.Make Coffee');
-    input.classList.add('px-4', 'py-2', 'text-xs', 'rounded-sm', 'bg-[#ffffff]', 'dark:bg-[#2b2c37]', 'border-[1.9px]', 'border-[#828fa3',   'border-opacity-20', 'text-[#000112]', 'dark:text-[#ffffff]','w-full',  'cursor-pointer', 'hover:border-[#635fcf]');
-    deleteBtn.classList.add('fa-solid', 'fa-xmark', 'ml-3', 'cursor-pointer', 'delete');
-    if(colorScheme === false) {
-      input.style.background = '#ffffff';
-      input.style.color = '#000112';
-    };
-    if(colorScheme === true) {
-      input.style.background = '#2b2c37';
-      input.style.color = '#ffffff';
-    };
-    window.addEventListener('click', function(e) {
-      if(e.target === addTask) {
-        isUpdate = false;
-        addTask.style.display = 'none';
-        addtask.querySelector('h2').textContent = 'Add New Task';
-        createTaskBtn.textContent = 'Create Task';
-        statusMenu.style.display - 'none';
-        statusTag.textContent = 'Select Status';
-        input.style.display = 'none';
+    // ADD SUBTASKS //
+    const subTaskBtn = document.querySelector('.subtask-btn');
+
+    subTaskBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // create elements //
+      const div = document.createElement('div');
+      const input = document.createElement('input');
+      const deleteBtn = document.createElement('i');
+
+      // add classes //
+      div.classList.add('flex', 'justify-between', 'items-center', 'mt-4',  'subtaskk');
+      input.setAttribute('id', 'sub-task');
+      input.setAttribute('type', 'text');
+      input.setAttribute('minlength', '5');
+      input.setAttribute('maxlength', '100');
+      input.setAttribute('placeholder', 'e.g.Make Coffee');
+      input.classList.add('px-4', 'py-2', 'text-xs', 'rounded-sm', 'bg-[#ffffff]', 'dark:bg-[#2b2c37]', 'border-[1.9px]', 'border-[#828fa3',   'border-opacity-20', 'text-[#000112]', 'dark:text-[#ffffff]','w-full',  'cursor-pointer', 'hover:border-[#635fcf]');
+      deleteBtn.classList.add('fa-solid', 'fa-xmark', 'ml-3', 'cursor-pointer', 'delete');
+      if(colorScheme === false) {
+        input.style.background = '#ffffff';
+        input.style.color = '#000112';
       };
-    });
-    deleteBtn.style.color = "#828fa3";
-    deleteBtn.style.fontSize = "x-large";
-    deleteBtn.setAttribute('id', 'delete');
+      if(colorScheme === true) {
+        input.style.background = '#2b2c37';
+        input.style.color = '#ffffff';
+      };
+      window.addEventListener('click', function(e) {
+        if(e.target === addTask) {
+          div.style.display = 'none';
+        };
+      });
+      deleteBtn.style.color = "#828fa3";
+      deleteBtn.style.fontSize = "x-large";
+      deleteBtn.setAttribute('id', 'delete');
 
-    // append to document //
-    div.appendChild(input);
-    div.appendChild(deleteBtn);
-    subTaskDiv.append(div);
+      // append to document //
+      div.appendChild(input);
+      div.appendChild(deleteBtn);
+      subTaskDiv.append(div);
+    });
+    subTaskDiv.querySelectorAll('.subtaskk').forEach(detail => detail.style.display = 'none');
+
+    // DELETE SUBTASKS //
+
+    subTaskDiv.addEventListener('click', function (e) {
+      if (e.target.id == 'delete') {
+        subTaskDiv.removeChild(e.target.parentElement);
+      }
+    });
+    statusMenu.querySelector('.todo').style.display = 'block';
+    statusMenu.querySelector('.doing').style.display = 'block';
+    statusMenu.querySelector('.done').style.display = 'block';
+
+    // CREATE TASK BTN
+
+    createTaskBtn.addEventListener('click', e => {
+      e.preventDefault();
+
+      let board = boards[currentBoard];
+
+      subTaskTag = addTaskForm.querySelectorAll('#sub-task');
+      let taskTitle = taskTitleTag.value;
+      let taskDesc = descTag.value;
+      let task = {
+        title: taskTitle,
+        desc: taskDesc,
+        subtasks: []
+      };
+      subTaskTag.forEach((subtask) => {
+        if(subtask.value !== "") {
+          let subtasks = {
+            title: subtask.value,
+            isCompleted: false
+          }
+          task.subtasks.push(subtasks);
+        }
+      });
+
+      if(statusTag.textContent === "Todo") {
+        if(!isUpdate) {
+          board.todoColumn.push(task);
+        } else {
+          isUpdate = false;
+          board.todoColumn[updateId] = task; //updating specific task
+        }
+        showTodoTask();
+      }
+      else if(statusTag.textContent === "Doing") {
+        if(!isUpdate) {
+          board.doingColumn.push(task);
+        } else {
+          isUpdate = false;
+          board.doingColumn[updateId] = task; //updating specific task
+        }
+        showDoingTask();
+      }
+      else if(statusTag.textContent === "Done") {
+        if(!isUpdate) {
+          board.doneColumn.push(task);
+        } else {
+          isUpdate = false;
+          board.doneColumn[updateId] = task; //updating specific task
+        }
+        showDoneTask();
+      };
+
+      boards[currentBoard] = board //overwrite previous board
+
+      localStorage.setItem("boards", JSON.stringify(boards));
+
+      addTask.style.display = 'none';
+      taskTitleTag.value = "";
+      descTag.value = "";
+      subTaskTag.forEach((subtask) => {
+        subtask.value = ""
+      });
+      statusTag.textContent = 'Select Status';
+      subTaskDiv.querySelectorAll('.subtaskk').forEach(detail => detail.remove());
+    });
+  });
+
+  window.addEventListener('click', function(e) {
+    if(e.target === addTask) {
+      isUpdate = false;
+      addTask.style.display = 'none';
+      addtask.querySelector('h2').textContent = 'Add New Task';
+      createTaskBtn.textContent = 'Create Task';
+      statusMenu.style.display - 'none';
+      statusTag.textContent = 'Select Status';
+      subTaskDiv.querySelectorAll('.subtaskk').forEach(detail => detail.remove());
+    };
   });
 
 
-  // DELETE SUBTASKS //
+  // STATUS MENU(TODO, DOING, DONE) //
 
-  subTaskDiv.addEventListener('click', function (e) {
-    if (e.target.id == 'delete') {
-      subTaskDiv.removeChild(e.target.parentElement);
+  statusBtnOne = document.querySelector('#status-btn-one');
+  statusTag = statusBtnOne.querySelector('p');
+  statusMenu = document.querySelector('#status-menu');
+
+  statusMenu.querySelector('ul').addEventListener('click', e => {
+    if(e.target.matches('li')) {
+      statusTag.textContent = e.target.textContent;
+      statusMenu.style.display = 'none';
     }
   });
+
+  const selectStatus = () => {
+    statusMenu.style.display = 'block';
+  };
+  statusBtnOne.addEventListener('click', selectStatus);
 
 
   // MEDIA QUERY //
@@ -1523,10 +1603,6 @@ const initApp = () => {
     title.classList.remove('text-2xl');
     title.classList.add('text-base', 'cursor-pointer');
     header.style.height = '64px';
-    taskBoard.forEach((taskboard) => {
-      taskboard.style.height = 'calc(100vh - 64px)';
-      taskboard.style.marginLeft = 'auto';
-    });
     dotBoardBtn.classList.remove('ml-5');
     dotBoardBtn.classList.add('ml-3');
     sideBar.classList.remove('bg-[#ffffff]', 'dark:bg-[#2b2c37]',   'border-r-[1.8px]', 'border-[#828fa3]', 'border-opacity-20');
@@ -1535,15 +1611,6 @@ const initApp = () => {
     title.addEventListener('click', function() {
       sideBar.style.display = 'block';
     });
-    if(sideOpenBtn.click()) {
-      taskBoard.forEach((taskboard) => {
-        taskboard.style.marginLeft = '259px';
-      });
-    } else {
-      taskBoard.forEach((taskboard) => {
-        taskboard.style.marginLeft = 'auto';
-      });
-    }
     sideCloseBtn.style.display = 'none';
 
     window.addEventListener('click', function(e) {
@@ -1555,22 +1622,15 @@ const initApp = () => {
       };
     });
 
-    window.onload = () => {
-      sideBar.style.display = 'none';
-      taskBoard.forEach((taskboard) => {
-        taskboard.style.marginLeft = 'auto';
-      });
-    };
-
     const toggleLightMode = document.querySelector('.fa-sun');
     const toggleDarkMode = document.querySelector('.fa-moon');
+
     toggleLightMode.addEventListener('click', () => {
       side.style.background = '#ffffff';
-    })
-
+    });
     toggleDarkMode.addEventListener('click', () => {
       side.style.background = '#2b2c37';
-    })
+    });
   };
 
   if (queryOne.matches) {
@@ -1596,24 +1656,21 @@ const initApp = () => {
   const toggleLightMode = document.querySelector('.fa-sun');
   const toggleDarkMode = document.querySelector('.fa-moon');
 
+  
   // LIGHT MODE //
 
-  toggleLightMode.addEventListener('click', () => {
-    colorScheme = false;
-    console.log('Light Mode');
-    localStorage.setItem("darkMode", JSON.stringify(colorScheme));
-    window.location.reload();
-  });
-
-  if(colorScheme === false) {
+  function lightMode() {
     body.style.background = '#ffffff';
     side.style.background = '#ffffff';
     toggleLightMode.style.background = '#635fcf';
     toggleLightMode.style.color = '#ffffff';
+    toggleDarkMode.style.color = '#828fa3';
     taskBoard.forEach((taskboard) => {
       taskboard.style.background = '#f4f7fd';
+      taskboard.style.transition = 'all .2s ease';
     });
     sideBar.style.background = '#ffffff';
+    sideBar.style.transition = 'all .2s ease';
     dotBoardMenu.style.background = '#ffffff';
     addBoard.style.background = '#ffffff';
     addBoard.querySelector('h2').style.color = '#000112';
@@ -1635,20 +1692,17 @@ const initApp = () => {
     document.querySelector('header').style.background = '#ffffff';
     document.querySelectorAll('#todo-task').forEach((task) => {
       task.style.background = '#ffffff';
-    });
-    document.querySelectorAll('#todo-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#000112';
     });
     document.querySelectorAll('#doing-task').forEach((task) => {
       task.style.background = '#ffffff';
-    });
-    document.querySelectorAll('#doing-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#000112';
     });
     document.querySelectorAll('#done-task').forEach((task) => {
       task.style.background = '#ffffff';
-    });
-    document.querySelectorAll('#done-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#000112';
     });
     document.querySelectorAll('#task-details').forEach((details) => {
@@ -1663,6 +1717,7 @@ const initApp = () => {
       details.querySelector('#status-menu-two div').style.background = '#ffffff';
     });
     header.querySelector('h1').style.color = '#000112';
+    header.style.transition = 'all .5s ease';
     document.querySelector('#toggle-theme').style.background = '#f4f7fd';
     document.querySelector('#sidebar img').removeAttribute('src', './img/kanban-logo.svg');
     document.querySelector('#sidebar img').setAttribute('src', './img/kanban-logo-light.svg');
@@ -1678,24 +1733,32 @@ const initApp = () => {
     }
   };
 
-  // DARK MODE //
-
-  toggleDarkMode.addEventListener('click', () => {
-    colorScheme = true;
-    console.log('Dark Mode');
+  toggleLightMode.addEventListener('click', () => {
+    colorScheme = false;
     localStorage.setItem("darkMode", JSON.stringify(colorScheme));
-    window.location.reload();
+    lightMode();
+    toggleDarkMode.style.background = '#f4f7fd';
   });
 
-  if(colorScheme === true) {
+  if(colorScheme === false) {
+    lightMode();
+  };
+
+  
+  // DARK MODE //
+
+  function darkMode() {
     body.style.background = '#2b2c37';
     side.style.background = '#2b2c37';
     toggleDarkMode.style.background = '#635fcf';
     toggleDarkMode.style.color = '#ffffff';
-      taskBoard.forEach((taskboard) => {
+    toggleLightMode.style.color = '#828fa3';
+    taskBoard.forEach((taskboard) => {
       taskboard.style.background = '#20212c';
+      taskboard.style.transition = 'all .2s ease';
     });
     sideBar.style.background = '#2b2c37';
+    sideBar.style.transition = 'all .2s ease';
     addBoard.style.background = '#2b2c37';
     dotBoardMenu.style.background = '#2b2c37';
     addBoard.querySelector('h2').style.color = '#ffffff';
@@ -1715,20 +1778,17 @@ const initApp = () => {
     document.querySelector('header').style.background = '#2b2c37';
     document.querySelectorAll('#todo-task').forEach((task) => {
       task.style.background = '#2b2c37';
-    });
-    document.querySelectorAll('#todo-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#ffffff';
     });
     document.querySelectorAll('#doing-task').forEach((task) => {
       task.style.background = '#2b2c37';
-    });
-    document.querySelectorAll('#doing-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#ffffff';
     });
     document.querySelectorAll('#done-task').forEach((task) => {
       task.style.background = '#2b2c37';
-    });
-    document.querySelectorAll('#done-task').forEach((task) => {
+      task.querySelector('h4').style.transition = 'all .5s ease';
       task.querySelector('h4').style.color = '#ffffff';
     });
     document.querySelectorAll('#task-details').forEach((details) => {
@@ -1743,6 +1803,7 @@ const initApp = () => {
       details.querySelector('#status-menu-two div').style.background = '#2b2c37';
     });
     header.querySelector('h1').style.color = '#ffffff';
+    header.style.transition = 'all .5s ease';
     document.querySelector('#toggle-theme').style.background = '#20212c';
     document.querySelector('#sidebar img').setAttribute('src', './img/kanban-logo.svg');
     document.querySelector('header img').setAttribute('src', './img/kanban-logo.svg');
@@ -1755,6 +1816,17 @@ const initApp = () => {
       sideBar.style.backdropFilter = 'blur(3px)';
       body.style.background = '#2b2c37'
     }
+  };
+
+  toggleDarkMode.addEventListener('click', () => {
+    colorScheme = true;
+    localStorage.setItem("darkMode", JSON.stringify(colorScheme));
+    darkMode();
+    toggleLightMode.style.background = '#20212c';
+  });
+
+  if(colorScheme === true) {
+    darkMode();
   }
 }
 document.addEventListener('DOMContentLoaded', initApp)
