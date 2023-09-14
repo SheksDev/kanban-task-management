@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<link rel="stylesheet" href="/build/index.css">
+<link rel="stylesheet" href="./index.css">
 <script src="https://kit.fontawesome.com/78f3f8b5a1.js" crossorigin="anonymous"></script>
 <script src="./js/index.js"></script>
 <style>
@@ -16,16 +16,19 @@
   <!-- STYLE SHEET -->
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    :root {
-      color-scheme: light dark;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  body {
+    transition: all .5s ease;
+  }
+  :root {
+    color-scheme: light dark;
+  }
   #sidebar {
     width: 300px;
     height: 100%;
@@ -39,7 +42,7 @@
   #sidebar ul li:hover {
     border-top-right-radius: 9999px;
     border-bottom-right-radius: 9999px;
-    background-color: #ffffff;
+    background-color: #deddf7;
   }
   
   #side-open-btn {
@@ -73,7 +76,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     backdrop-filter: blur(3px);
     background-color: rgba(0, 0, 0, .1);
   }
@@ -201,7 +204,6 @@
   #checkbox {
     appearance: none;
     -webkit-appearance: none;
-    accent-color: #635fcf;
     min-height: 16px;
     min-width: 16px;
     border-radius: 3px;
@@ -245,7 +247,7 @@
   @media (max-width: 720px) {
     #sidebar {
       width: 100%;
-      height: 100%;
+      height: 100vh;
       top: 0;
       left: 0;
       backdrop-filter: blur(3px);
@@ -257,12 +259,15 @@
       height: auto;
       width: min(300px, 90%);
       position: absolute;
-      top: 25%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, 0%);
+      transform: translate(-50%, -50%);
     }
     .side-down {
       padding: 15px 0 15px 0;
+    }
+    #task-board {
+      height: calc(100vh - 64px);
     }
   }
 
@@ -419,7 +424,7 @@
           class="description  w-full h-28 text-[#000112] dark:text-[#ffffff] bg-[#ffffff] dark:bg-[#2b2c37] border-[1.9px] border-[#828fa3] border-opacity-20 px-4 py-2 rounded-sm cursor-pointer hover:border-[#635fcf] text-xs"></textarea>
           <label for="subtasks" class="text-[#828fa3] mt-[24px] mb-[8px] text-xs">Subtasks</label>
           <div id="subtask-div">
-            <div class="flex justify-between items-center subtask">
+            <div class="flex justify-between items-center sub-task">
               <input id="sub-task" type="text" placeholder="e.g.Make Coffee" minlength="5" maxlength="100"
               class="px-4 py-2 rounded-sm bg-[#ffffff] dark:bg-[#2b2c37] border-[1.9px] border-[#828fa3] border-opacity-20 text-[#000112] dark:text-[#ffffff]  w-full h-10 cursor-pointer hover:border-[#635fcf] text-xs">
               <i class="fa-solid fa-xmark ml-3 cursor-pointer" style="color: #828fa3; font-size: x-large;"></i>
